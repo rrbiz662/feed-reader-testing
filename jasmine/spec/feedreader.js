@@ -37,7 +37,7 @@ $(function() {
             for (let i = 0; i < allFeeds.length; i++) {
                 const element = allFeeds[i];
 
-                if(element.url === undefined || element.url === "")
+                if(element.url === undefined || element.url === '')
                 {
                     hasURL = false;
                     break;
@@ -57,7 +57,7 @@ $(function() {
             for (let i = 0; i < allFeeds.length; i++) {
                 const element = allFeeds[i];
 
-                if(element.name === undefined || element.name === "")
+                if(element.name === undefined || element.name === '')
                 {
                     hasName = false;
                     break;
@@ -68,20 +68,54 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
-
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+    /**
+     * Test suite for the blog menu.
+     */
+    describe('The Menu', function(){
+         /* Test that ensures the menu element is
+         * hidden by default.
          */
+        it('is hidden', function(){
+            menu_hide = document.getElementsByTagName('body')[0].className;
 
-         /* TODO: Write a test that ensures the menu changes
+            expect(menu_hide).toBe('menu-hidden');
+        });
+
+          /* Test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         it('is changing visibility', function(){
+             let menuEle = document.getElementsByClassName('menu-icon-link')[0];
+             let menu_hide = document.getElementsByTagName('body')[0].className;
+
+             if(menu_hide === "menu-hidden"){
+                // Make sure the menu is unhidden on the first click.
+                menuEle.click();
+                menu_hide = document.getElementsByTagName('body')[0].className;
+                expect(menu_hide).toBe('');
+
+                // Make sure the menu is re-hidden on the second click.
+                menuEle.click();
+                menu_hide = document.getElementsByTagName('body')[0].className;
+                expect(menu_hide).toBe('menu-hidden');
+
+             }
+             else{
+                // Make sure the menu is hidden on the first click.
+                menuEle.click();
+                menu_hide = document.getElementsByTagName('body')[0].className;
+                expect(menu_hide).toBe('menu-hidden');
+
+                // Make sure the menu is unhidden on the second click.
+                menuEle.click();
+                menu_hide = document.getElementsByTagName('body')[0].className;
+                expect(menu_hide).toBe('');
+             }
+         });
+    });
+
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
