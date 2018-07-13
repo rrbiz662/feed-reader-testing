@@ -75,14 +75,14 @@ $(function(){
      * Test suite for the blog menu.
      */
     describe('The Menu', function(){
+        let menuHide = document.getElementsByTagName('body')[0].className;
+
         /*
         * Test that ensures the menu element is
         * hidden by default.
         */
         it('is hidden', function(){
-            menu_hide = document.getElementsByTagName('body')[0].className;
-
-            expect(menu_hide).toBe('menu-hidden');
+            expect(menuHide).toBe('menu-hidden');
         });
 
         /*
@@ -92,31 +92,30 @@ $(function(){
         * clicked and does it hide when clicked again.
         */
         it('is changing visibility', function(){
-            let menuEle = document.getElementsByClassName('menu-icon-link')[0];
-            let menu_hide = document.getElementsByTagName('body')[0].className;
+            const menuEle = document.getElementsByClassName('menu-icon-link')[0];
 
-            if (menu_hide === "menu-hidden"){
+            if (menuHide === "menu-hidden"){
                 // Make sure the menu is unhidden on the first click.
                 menuEle.click();
-                menu_hide = document.getElementsByTagName('body')[0].className;
-                expect(menu_hide).toBe('');
+                menuHide = document.getElementsByTagName('body')[0].className;
+                expect(menuHide).toBe('');
 
                 // Make sure the menu is re-hidden on the second click.
                 menuEle.click();
-                menu_hide = document.getElementsByTagName('body')[0].className;
-                expect(menu_hide).toBe('menu-hidden');
+                menuHide = document.getElementsByTagName('body')[0].className;
+                expect(menuHide).toBe('menu-hidden');
 
             }
             else{
                 // Make sure the menu is hidden on the first click.
                 menuEle.click();
-                menu_hide = document.getElementsByTagName('body')[0].className;
-                expect(menu_hide).toBe('menu-hidden');
+                menuHide = document.getElementsByTagName('body')[0].className;
+                expect(menuHide).toBe('menu-hidden');
 
                 // Make sure the menu is unhidden on the second click.
                 menuEle.click();
-                menu_hide = document.getElementsByTagName('body')[0].className;
-                expect(menu_hide).toBe('');
+                menuHide = document.getElementsByTagName('body')[0].className;
+                expect(menuHide).toBe('');
             }
         });
     });
@@ -125,7 +124,6 @@ $(function(){
      * Test suite for the initial feed entries.
      */
     describe('Initial Entries', function(){
-
         beforeEach(function(done){
             loadFeed(0, function(){
                 done();
@@ -138,8 +136,8 @@ $(function(){
         * a single .entry element within the .feed container.
         */
         it('has entries', function(done){
-            let feedEle = document.getElementsByClassName('feed')[0];
-            let feedCount = feedEle.getElementsByTagName('a').length;
+            const feedEle = document.getElementsByClassName('feed')[0];
+            const feedCount = feedEle.getElementsByTagName('a').length;
 
             expect(feedCount).toBeGreaterThan(0);
             done();
@@ -150,11 +148,11 @@ $(function(){
      * Test suite for new feed selection.
      */
     describe('New Feed Selection', function(){
-        let initFeed = [];
-        let feedEle = document.getElementsByClassName('feed')[0];
+        const initFeed = [];
+        const feedEle = document.getElementsByClassName('feed')[0];
 
         beforeEach(function(done){
-            let feed = feedEle.getElementsByTagName('h2');
+            const feed = feedEle.getElementsByTagName('h2');
 
             // Build initial feed array.
             for (let i = 0; i < feed.length; i++){
@@ -173,8 +171,8 @@ $(function(){
          * function that the content actually changes.
          */
         it('content changed', function(done){
-            let feed = feedEle.getElementsByTagName('h2');
-            let currentFeed = [];
+            const feed = feedEle.getElementsByTagName('h2');
+            const currentFeed = [];
 
             // Build current feed array.
             for (let i = 0; i < feed.length; i++){
