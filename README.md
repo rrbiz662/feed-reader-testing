@@ -1,9 +1,8 @@
 # feed-reader-testing
 This project consists of a web-based application that reads RSS feeds. It uses the [Jasmine](http://jasmine.github.io/) testing framework to test its functionality. The main objective of this project is to demonstrate how to write `Test Suites` and `Test Specifications` via the `Jasmine` testing framework. The original scenario was:
 
-```
-The original developer of this application clearly saw the value in testing, they've already included Jasmine and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
-```
+
+>The original developer of this application clearly saw the value in testing, they've already included Jasmine and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 
 ## Getting Started
 These instructions will get you a copy of the project on your local machine for development and/or testing purposes.
